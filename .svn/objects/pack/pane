@@ -1,0 +1,10 @@
+console.log('testing... pane')
+const fs = require('fs');
+
+const writeStream = fs.createWriteStream('example.txt');
+for(let i=0;i<10000000;i++)
+  writeStream.write(`This is the ${i} line.\n`);
+
+writeStream.end(() => {
+  console.log('File created with a stream!');
+});
